@@ -1,0 +1,37 @@
+$ runkit lint
+Checked 19 files in 71ms. No violations found.
+
+  x jsx-a11y(no-noninteractive-tabindex): `tabIndex` should only be declared on interactive elements.
+     ,-[packages/web/src/web/components/qiosq.tsx:513:11]
+ 512 |           aria-label="Carte démonstrative : Entrée pour placer au centre"
+ 513 |           tabIndex={0}
+     :           ^^^^^^^^^^^^
+ 514 |           onKeyDown={(e) => {
+     `----
+  help: The `tabIndex` attribute should be removed.
+
+  x jsx-a11y(no-noninteractive-element-interactions): Non-interactive elements should not be assigned mouse or keyboard event listeners.
+     ,-[packages/web/src/web/components/qiosq.tsx:510:10]
+ 509 |       <div className="map-surface" style={{ transform: `scale(${zoom})` }}>
+ 510 |         <svg
+     :          ^^^
+ 511 |           role="application"
+     `----
+  help: Move the handler to an interactive element, or use an appropriate interactive role.
+
+  x jsx-a11y(control-has-associated-label): A control must be associated with a text label.
+     ,-[packages/web/src/web/components/qiosq.tsx:394:9]
+ 393 |           ) : type === "textarea" ? (
+ 394 | ,->         <textarea
+ 395 | |             name={name}
+ 396 | |             defaultValue={value}
+ 397 | |             required={required}
+ 398 | |             onChange={(e) => onChange?.(e.target.value)}
+ 399 | `->         />
+ 400 |           ) : (
+     `----
+  help: Add a text label to the control element. This can be done by adding text content, an `aria-label` attribute, or an `aria-labelledby` attribute.
+
+Found 0 warnings and 3 errors.
+Finished in 197ms on 59 files with 152 rules using 2 threads.
+error: script "lint" exited with code 1
